@@ -1,9 +1,10 @@
 import styled from 'styled-components'
 
-const HeaderSection = styled.header`
+export const HeaderSection = styled.header`
   width: 100%;
   height: 6.5rem;
   position: fixed;
+  z-index: 9999;
   top: 0;
   box-shadow: 0 0 5px #8b949e;
   display: flex;
@@ -14,11 +15,10 @@ const HeaderSection = styled.header`
   transition: all 0.5s ease;
   @media (max-width: ${({ theme }) => theme.device.mobile}) {
     height: 4.5rem;
-    z-index: 100;
   }
 `
 
-const Title = styled.h1`
+export const Title = styled.h1`
   text-align: center;
   margin: 0;
   cursor: pointer;
@@ -27,23 +27,7 @@ const Title = styled.h1`
   }
 `
 
-export const SidebarItem = styled.div`
-  text-align: center;
-  cursor: pointer;
-  padding: 0.5rem 0;
-  svg {
-    font-size: 2rem;
-  }
-  h2 {
-    font-size: 1rem;
-    margin: 0;
-  }
-  @media (max-width: ${({ theme }) => theme.device.mobile}) {
-    padding: 0.5rem 0;
-  }
-`
-
-const ImageContainer = styled.div`
+export const ImageContainer = styled.div`
   &.burger {
     display: block;
     position: relative;
@@ -158,16 +142,17 @@ const ImageContainer = styled.div`
   }
 
   &.themeToogle {
-    width: 3rem;
-    height: 3rem;
+    width: 2.8rem;
+    height: 2.8rem;
     margin-right: 2rem;
 
     img {
-      width: 3rem;
-      height: 3rem;
+      width: 2.8rem;
+      height: 2.8rem;
       border-radius: 50%;
       :hover {
         box-shadow: 0 0 10px ${(props) => props.theme.fontColor.author};
+        cursor: pointer;
       }
     }
 
@@ -187,5 +172,3 @@ const ImageContainer = styled.div`
     }
   }
 `
-
-export { HeaderSection, Title, ImageContainer }
