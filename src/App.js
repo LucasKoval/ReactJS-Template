@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import { ThemeProvider } from 'styled-components'
 import { GlobalProvider } from './services/context/GlobalContext'
@@ -9,7 +9,11 @@ import Page2 from './pages/page2'
 import { GlobalStyle, ToastStyledContainer, lightTheme, darkTheme } from './styles/globalStyles'
 
 function App() {
-  const [theme, setTheme] = useState('light')
+  const [theme, setTheme] = useState()
+
+  useEffect(() => {
+    window.matchMedia('(prefers-color-scheme: dark)').matches ? setTheme('dark') : setTheme('light')
+  }, [])
 
   return (
     <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
